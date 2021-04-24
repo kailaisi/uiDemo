@@ -70,6 +70,7 @@ public class MatrixImageView extends AppCompatImageView {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN://单点触摸
+            case MotionEvent.ACTION_POINTER_UP://第二个点离开屏幕
                 savedMatrix.set(currentMatrix);
                 start.set(event.getX(), event.getY());
                 mode = MODE_DRAG;
@@ -91,9 +92,6 @@ public class MatrixImageView extends AppCompatImageView {
                 saveRotate = calRotation(event);//计算两个手指大的角度
                 break;
             case MotionEvent.ACTION_UP://单点离开屏幕
-            case MotionEvent.ACTION_POINTER_UP://第二个点离开屏幕
-                mode = MODE_NONE;
-                preEventCoor = null;
                 break;
             case MotionEvent.ACTION_MOVE://触摸点移动
                 //单点触控，执行拖拽评议
@@ -106,8 +104,8 @@ public class MatrixImageView extends AppCompatImageView {
                     //计算当前两指之间大的距离
                     float currentMove = calSpacing(event);
                     currentMatrix.set(savedMatrix);
-                    Log.d(TAG, "currentMove: "+currentMove+",preMove:"+preMove);
-                    if (currentMove-preMove > 10) {
+                    Log.d(TAG, "currentMove: " + currentMove + ",preMove:" + preMove);
+                    if (Math.abs(currentMove - preMove) > 10) {
                         //指尖移动距离大于10F,执行缩放
                         float scale = currentMove / preMove;
                         currentMatrix.postScale(scale, scale, mid.x, mid.y);
