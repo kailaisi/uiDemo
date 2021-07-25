@@ -1,4 +1,4 @@
-package com.kailaisi.uidemo;
+package com.kailaisi.uidemo.aige;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
+
+import com.kailaisi.uidemo.ScreenUtil;
 
 /**
  * 自定义Layout，来进行布局的测量和布局。极简单版本，主要用来联系onLayout和onMeasure的相关定义

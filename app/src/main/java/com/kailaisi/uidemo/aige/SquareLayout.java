@@ -1,4 +1,4 @@
-package com.kailaisi.uidemo;
+package com.kailaisi.uidemo.aige;
 
 import android.content.Context;
 import android.util.AttributeSet;

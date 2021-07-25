@@ -1,4 +1,4 @@
-package com.kailaisi.uidemo;
+package com.kailaisi.uidemo.aige;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -13,6 +13,8 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+
+import com.kailaisi.uidemo.R;
 
 /**
  * 狙击枪，指哪儿打哪儿

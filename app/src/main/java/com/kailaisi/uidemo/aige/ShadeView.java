@@ -1,4 +1,4 @@
-package com.kailaisi.uidemo;
+package com.kailaisi.uidemo.aige;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,6 +11,9 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+
+import com.kailaisi.uidemo.R;
+import com.kailaisi.uidemo.ScreenUtil;
 
 /**
  * shadeView

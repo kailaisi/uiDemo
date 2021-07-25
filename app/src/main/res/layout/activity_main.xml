@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.kailaisi.uidemo.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.kailaisi.uidemo.aige.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,6 +15,7 @@
         android:text="按钮" />
 
     <TextView
+        style=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Kailaisi" />
@@ -53,4 +54,4 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher" />
-</com.kailaisi.uidemo.SquareLayout>
+</com.kailaisi.uidemo.aige.SquareLayout>

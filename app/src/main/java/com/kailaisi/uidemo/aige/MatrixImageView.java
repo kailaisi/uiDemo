@@ -1,4 +1,4 @@
-package com.kailaisi.uidemo;
+package com.kailaisi.uidemo.aige;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,6 +11,9 @@ import android.view.MotionEvent;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
+
+import com.kailaisi.uidemo.R;
+import com.kailaisi.uidemo.ScreenUtil;
 
 /**
  * 能够根据手指的缩放来进行图片的旋转和缩放
