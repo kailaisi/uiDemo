@@ -1,57 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.kailaisi.uidemo.aige.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="60dp"
+    android:background="@color/cardview_light_background"
     tools:context=".MainActivity">
 
-    <Button
+    <com.kailaisi.uidemo.cai.TextView
+        android:padding="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:text="按钮" />
+        android:background="#00ff00"
+        app:drawTextColor="@color/white"
+        app:drawText="按钮按钮按钮按钮按钮按钮按钮按钮"
+        app:drawTextSize="30sp" />
 
-    <TextView
-        style=""
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kailaisi" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher" />
-</com.kailaisi.uidemo.aige.SquareLayout>
+</LinearLayout>
