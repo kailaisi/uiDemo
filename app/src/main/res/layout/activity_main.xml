@@ -6,16 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="60dp"
-    android:background="@color/cardview_light_background"
     tools:context=".MainActivity">
 
-    <com.kailaisi.uidemo.cai.TextView
-        android:padding="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00ff00"
-        app:drawTextColor="@color/white"
-        app:drawText="按钮按钮按钮按钮按钮按钮按钮按钮"
-        app:drawTextSize="30sp" />
-
+    <com.kailaisi.uidemo.cai.QQStepView
+        android:id="@+id/step"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:borderWidth="20dp"
+        app:innerColor="#ff0000"
+        app:stepTextSize="90sp" />
 </LinearLayout>
