@@ -5,14 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="60dp"
     tools:context=".MainActivity">
 
-    <com.kailaisi.uidemo.cai.QQStepView
+    <com.kailaisi.uidemo.cai.ColorTrackTextView
         android:id="@+id/step"
+        app:originColor="@color/purple_500"
+        android:text="stringstringstringstring"
+        app:changeColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:text="@string/app_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:borderWidth="20dp"
-        app:innerColor="#ff0000"
-        app:stepTextSize="90sp" />
+        />
 </LinearLayout>
