@@ -8,13 +8,13 @@
     android:padding="60dp"
     tools:context=".MainActivity">
 
-    <com.kailaisi.uidemo.cai.ShapeView
+    <com.kailaisi.uidemo.cai.RatingBar
         android:id="@+id/step"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:innerBackground="@color/purple_200"
-        app:outBackground="@color/material_on_primary_emphasis_medium"
-        app:progressBorderWidth="3dp"
-        app:progressTextColor="@color/purple_500"
-        app:progressTextSize="20sp" />
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:gradeNumber="10"
+        app:rating_padding="2dp"
+        app:starNormal="@drawable/rb_fee_normal"
+        app:starSelect="@drawable/rb_fee_selected" />
 </LinearLayout>

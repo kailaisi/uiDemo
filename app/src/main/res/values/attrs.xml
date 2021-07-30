@@ -25,4 +25,11 @@
         <attr name="progressTextSize" format="dimension" />
         <attr name="progressTextColor" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="RatingBar">
+        <attr name="starNormal" format="reference" />
+        <attr name="starSelect" format="reference" />
+        <attr name="gradeNumber" format="integer" />
+        <attr name="rating_padding" format="dimension" />
+    </declare-styleable>
 </resources>

@@ -6,10 +6,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.os.Message;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.BaseAdapter;
 
 import androidx.annotation.Nullable;
 
