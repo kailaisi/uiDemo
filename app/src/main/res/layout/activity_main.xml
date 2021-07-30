@@ -8,11 +8,13 @@
     android:padding="60dp"
     tools:context=".MainActivity">
 
-    <com.kailaisi.uidemo.cai.QQStepView
+    <com.kailaisi.uidemo.cai.ShapeView
         android:id="@+id/step"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:borderWidth="20dp"
-        app:innerColor="#ff0000"
-        app:stepTextSize="90sp" />
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:innerBackground="@color/purple_200"
+        app:outBackground="@color/material_on_primary_emphasis_medium"
+        app:progressBorderWidth="3dp"
+        app:progressTextColor="@color/purple_500"
+        app:progressTextSize="20sp" />
 </LinearLayout>
