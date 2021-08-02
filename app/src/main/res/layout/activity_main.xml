@@ -4,17 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="60dp"
+    android:orientation="horizontal"
+    android:paddingLeft="40dp"
     tools:context=".MainActivity">
 
-    <com.kailaisi.uidemo.cai.RatingBar
+    <com.kailaisi.uidemo.cai.LetterSideView
         android:id="@+id/step"
-        android:padding="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:gradeNumber="10"
-        app:rating_padding="2dp"
-        app:starNormal="@drawable/rb_fee_normal"
-        app:starSelect="@drawable/rb_fee_selected" />
+        android:layout_height="match_parent"
+        android:paddingLeft="70dp"
+        android:paddingRight="70dp"
+        app:sideTextColor="@color/purple_200"
+        app:sideTextSize="20dp" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="A" />
 </LinearLayout>

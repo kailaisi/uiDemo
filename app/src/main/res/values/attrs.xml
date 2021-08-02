@@ -32,4 +32,9 @@
         <attr name="gradeNumber" format="integer" />
         <attr name="rating_padding" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="LetterSideView">
+        <attr name="sideTextSize" format="dimension" />
+        <attr name="sideTextColor" format="color" />
+    </declare-styleable>
 </resources>

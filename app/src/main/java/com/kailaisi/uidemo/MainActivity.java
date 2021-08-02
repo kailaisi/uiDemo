@@ -1,17 +1,11 @@
 package com.kailaisi.uidemo;
 
+import android.os.Bundle;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.os.Bundle;
-import android.view.View;
-import android.view.animation.DecelerateInterpolator;
-
-import com.kailaisi.uidemo.cai.ProgressBar;
-import com.kailaisi.uidemo.cai.QQStepView;
-import com.kailaisi.uidemo.cai.ShapeView;
+import com.kailaisi.uidemo.cai.LetterSideView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,5 +13,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        LetterSideView view = findViewById(R.id.step);
+        TextView tv = findViewById(R.id.tv);
+        view.setListener(new LetterSideView.TouchLetterListener() {
+            @Override
+            public void onTouch(String text) {
+                tv.setText(text);
+            }
+        });
     }
 }
