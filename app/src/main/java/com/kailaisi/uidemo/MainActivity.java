@@ -13,13 +13,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        LetterSideView view = findViewById(R.id.step);
-        TextView tv = findViewById(R.id.tv);
-        view.setListener(new LetterSideView.TouchLetterListener() {
-            @Override
-            public void onTouch(String text) {
-                tv.setText(text);
-            }
-        });
     }
 }
