@@ -4,19 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="40dp"
     tools:context=".MainActivity">
 
-    <com.kailaisi.uidemo.cai.ProgressBar
-        android:id="@+id/step"
-        app:originColor="@color/purple_500"
-        app:changeColor="@color/black"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:progressTextSize="20sp"
-        app:progressTextColor="@color/black"
-        app:innerBackground="@color/design_default_color_primary"
-        app:outerBackground="@color/material_on_background_disabled"
-        app:roundWidth="5sp"
-        />
+    <com.kailaisi.uidemo.cai.TagLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="A" />
+    </com.kailaisi.uidemo.cai.TagLayout>
 </LinearLayout>

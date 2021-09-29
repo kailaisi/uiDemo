@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -14,20 +13,20 @@ import androidx.annotation.Nullable;
 
 import com.kailaisi.uidemo.R;
 
-/**
- * 描述：
- * <p/>作者：wu
- * <br/>创建时间：2021-09-29:21:50
- */
 public class ProgressBar extends View {
 
-    Paint mTextPaint;
-    Paint innerPaint;
-    Paint outerPaint;
-    private int roundWidth;
 
-    private int progress = 50;
-    private int max = 100;
+    private Paint mTextPaint;
+    private int mOuterColor = Color.RED;
+    private int mInnerColor = Color.BLUE;
+    private int mTextColor = Color.BLACK;
+    private int borderWidth = 20;
+    private int mTextSize = 20;
+    private Paint mOuterPaint;
+    private Paint mInnerPaint;
+
+    private int mProgress = 50;
+    private int MAX = 100;
 
     public ProgressBar(Context context) {
         this(context, null);
@@ -40,70 +39,79 @@ public class ProgressBar extends View {
     public ProgressBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.ProgressBar);
-        innerPaint = new Paint();
-        innerPaint.setAntiAlias(false);
-        int color = array.getColor(R.styleable.ProgressBar_innerBackground, Color.WHITE);
-        roundWidth = array.getDimensionPixelSize(R.styleable.ProgressBar_roundWidth, 3);
-        innerPaint.setColor(color);
-        innerPaint.setStrokeWidth(roundWidth);
-        innerPaint.setStyle(Paint.Style.STROKE);
+        mOuterColor = array.getColor(R.styleable.ProgressBar_outBackground, mOuterColor);
+        mInnerColor = array.getColor(R.styleable.ProgressBar_innerBackground, mInnerColor);
+        mTextColor = array.getColor(R.styleable.ProgressBar_progressTextColor, mTextColor);
+        borderWidth = array.getDimensionPixelSize(R.styleable.ProgressBar_progressBorderWidth, borderWidth);
+        mTextSize = array.getDimensionPixelSize(R.styleable.ProgressBar_progressTextSize, mTextSize);
+        array.recycle();
+        mOuterPaint = new Paint();
+        mOuterPaint.setAntiAlias(true);
+        mOuterPaint.setColor(mOuterColor);
+        mOuterPaint.setStrokeWidth(borderWidth);
+        mOuterPaint.setStrokeCap(Paint.Cap.ROUND);
+        mOuterPaint.setStyle(Paint.Style.STROKE);
 
-        color = array.getColor(R.styleable.ProgressBar_outerBackground, Color.BLACK);
-        outerPaint = new Paint();
-        outerPaint.setAntiAlias(true);
-        outerPaint.setColor(color);
-        outerPaint.setStrokeWidth(roundWidth);
-        outerPaint.setStyle(Paint.Style.STROKE);
+        mInnerPaint = new Paint();
+        mInnerPaint.setAntiAlias(true);
+        mInnerPaint.setColor(mInnerColor);
+        mInnerPaint.setStrokeWidth(borderWidth);
+        mInnerPaint.setStrokeCap(Paint.Cap.ROUND);
+        mInnerPaint.setStyle(Paint.Style.STROKE);
 
 
-        color = array.getColor(R.styleable.ProgressBar_progressTextColor, Color.BLACK);
         mTextPaint = new Paint();
         mTextPaint.setAntiAlias(true);
-        mTextPaint.setColor(color);
-        int size = array.getDimensionPixelSize(R.styleable.ProgressBar_progressTextSize, 3);
-        mTextPaint.setTextSize(size);
-        array.recycle();
+        mTextPaint.setColor(mTextColor);
+        mTextPaint.setTextSize(mTextSize);
+        mTextPaint.setStyle(Paint.Style.FILL);
+        mTextPaint.setStrokeCap(Paint.Cap.SQUARE);
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        //内圆
-        canvas.drawCircle(getWidth() / 2f, getHeight() / 2f, getWidth() / 2f - roundWidth / 2, outerPaint);
 
-        //外圆
-        RectF rect = new RectF(roundWidth / 2, roundWidth / 2, getWidth() - roundWidth / 2, getHeight() - roundWidth / 2);
-        canvas.drawArc(rect, 0, progress * 360 / 100, false, innerPaint);
+    public synchronized void setProgress(int progress) {
+        if (progress < 0) {
+            return;
+        }
+        this.mProgress = progress;
+        invalidate();
+    }
 
-        //文字
-        String text = progress + "/100";
-        Rect bounds = new Rect();
-        mTextPaint.getTextBounds(text, 0, text.length(), bounds);
-        int dx = getWidth() / 2 - bounds.width() / 2;
-        Paint.FontMetricsInt fontMetrics = mTextPaint.getFontMetricsInt();
-        int dy = (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom;
-        int baseLine = getHeight() / 2 + dy;
-        canvas.drawText(text, dx, baseLine, mTextPaint);
-
-
+    public void setMax(int MAX) {
+        this.MAX = MAX;
+        invalidate();
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        //需要设置为宽高相同
         int width = MeasureSpec.getSize(widthMeasureSpec);
         int height = MeasureSpec.getSize(heightMeasureSpec);
-        int min = Math.min(width, height);
-        setMeasuredDimension(min, min);
+        int size = Math.min(height, width);
+        setMeasuredDimension(size, size);
     }
 
-    public void setProgress(int progress) {
-        this.progress = progress;
-        invalidate();
-    }
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        int center = getWidth() / 2;
+        int halfBorder = borderWidth / 2;
+        canvas.drawCircle(center, getHeight() / 2, center - halfBorder, mInnerPaint);
+        if (mProgress == 0) {
+            return;
+        }
+        int progress=(100*mProgress/MAX);
+        String text = progress + "%";
+        canvas.drawArc(halfBorder, halfBorder, getWidth() - halfBorder, getHeight() - halfBorder,
+                0, 45, false, mOuterPaint);
+        Rect bound = new Rect();
+        mTextPaint.getTextBounds(text, 0, text.length(), bound);
+        int left = getWidth() / 2 - bound.width() / 2;
+        Paint.FontMetrics fontMetrics = mTextPaint.getFontMetrics();
+        int dy = (int) ((fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom);
+        int baseLine = getHeight() / 2 + dy;
 
-    public void setMax(int max) {
-        this.max = max;
-        invalidate();
+        canvas.drawText(text, left, baseLine, mTextPaint);
     }
 }
