@@ -7,17 +7,16 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.kailaisi.uidemo.cai.ColorTrackTextView
+    <com.kailaisi.uidemo.cai.ProgressBar
         android:id="@+id/step"
         app:originColor="@color/purple_500"
-        android:text="stringstringstringstring"
         app:changeColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-    <TextView
-        android:text="@string/app_name"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:progressTextSize="20sp"
+        app:progressTextColor="@color/black"
+        app:innerBackground="@color/design_default_color_primary"
+        app:outerBackground="@color/material_on_background_disabled"
+        app:roundWidth="5sp"
         />
 </LinearLayout>

@@ -20,4 +20,12 @@
         <attr name="originColor" format="color|reference" />
         <attr name="changeColor" format="color|reference" />
     </declare-styleable>
+    
+    <declare-styleable name="ProgressBar">
+        <attr name="innerBackground" format="color"/>
+        <attr name="outerBackground" format="color"/>
+        <attr name="roundWidth" format="dimension"/>
+        <attr name="progressTextSize" format="dimension"/>
+        <attr name="progressTextColor" format="color"/>
+    </declare-styleable>
 </resources>
