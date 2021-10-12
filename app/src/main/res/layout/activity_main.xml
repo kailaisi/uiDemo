@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<com.kailaisi.uidemo.cai.KGSlidingMenu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:paddingLeft="40dp"
-    tools:context=".MainActivity">
+    android:paddingStart="40dp"
+    tools:context=".MainActivity"
+    tools:ignore="RtlSymmetry">
 
-    <com.kailaisi.uidemo.cai.TagLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/tv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="A" />
-    </com.kailaisi.uidemo.cai.TagLayout>
-</LinearLayout>
+
+        <include layout="@layout/layout_home_menu"/>
+        <include layout="@layout/layout_home_content"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</com.kailaisi.uidemo.cai.KGSlidingMenu>
